@@ -5,8 +5,6 @@
     $dbh = new PDO('mysql:host=localhost;dbname=news', $user, $pass);
 
     //提取页面数据
-
-
     for($i=0;$i<=10;$i++)
     {
         $file = 'news_html/'.$i.'.html';     // [0-10].html
@@ -15,16 +13,12 @@
         $pattern = '/<ul class="branch_list_ul paging">(.*)<\/ul>/Us';
 
         preg_match_all($pattern,$content,$matches);
-        //echo '<pre>';print_r($matches);echo '</pre>';
 
         //匹配的结果
         $list = $matches[1][0];
-        //echo $list;
 
-        //$pattern = '/<a href="(.*)" >/U';
         $pattern = '/<a href="(.*)" >(.*)<\/a>/U';
         preg_match_all($pattern,$list,$matches2);
-        //echo '<pre>';print_r($matches2);echo '</pre>';die;
 
         //获取新闻链接
         $news_links = $matches2[1];
@@ -35,7 +29,6 @@
         {
 
             $link = $base_url.$v;
-            //echo $new_title[$k] . "： ".$link;echo '</br>';
             $add_time = time();
 
             //中文转码
