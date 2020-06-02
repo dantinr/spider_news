@@ -1,4 +1,5 @@
 <?php
+    // 数据提取 并入库
 
     $user = 'root';
     $pass = '123456abc';
