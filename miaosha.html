@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>秒杀</title>
+</head>
+<body>
+
+    商品名：Iphone X <br>
+    价格：  6666 <br>
+
+    <button id="miaosha">秒杀</button>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+
+        $("#miaosha").click(function(){
+            $.ajax({
+                url     : 'http://www.wandu.com/miaosha.php',
+                type    : 'get',
+                dataType: 'json',
+                success: function(d){
+                    if(d.errno > 0)
+                    {
+                        alert(d.msg);
+                    }else{
+                        alert(d.msg);
+                        window.location.href = '/pay.html';     //跳转支付
+                    }
+
+                }
+            });
+        });
+
+
+    </script>
+</body>
+</html>
