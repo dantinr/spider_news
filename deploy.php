@@ -6,5 +6,6 @@
     //让 php 执行shell 命令
 
     $cmd = 'cd /www/1906/wandu && git pull';
-    shell_exec($cmd);
+    $res = shell_exec($cmd);
 
+    var_dump($res);
